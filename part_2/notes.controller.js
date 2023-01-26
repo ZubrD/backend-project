@@ -36,22 +36,8 @@ async function printNotes() {
   });
 }
 
-async function editNote(titleObject){
-  const notes = await getNotes()
-  const id = titleObject.id
-  const title = titleObject.newTitle
-  notes.map(item=>{
-    if(item.id===id){
-      item.title=title
-    }
-  })
-  await fs.writeFile(notesPath, JSON.stringify(notes));
-}
-
 module.exports = {
   addNote,
-  getNotes,
   printNotes,
   removeNote,
-  editNote
 };
